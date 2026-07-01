@@ -28,5 +28,4 @@ I am currently using the Exercism Go Track
 This is primarily a personal learning repository, but if you spot a bug in my code, have a suggestion for a more idiomatic approach, or want to share a cool resource, feel free to open an Issue or a Pull Request!
 
 ## 📜 License
-This project is licensed under the MIT License - see the LICENSE
- file for details.
+This project is licensed under the MIT License - see the [LICENSE file](https://github.com/MiladSabri74/SpaceGo/blob/master/LICENSE) for details.
