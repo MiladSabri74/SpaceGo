@@ -17,7 +17,7 @@ type Manager struct{}
 func main() {
 
 	if len(os.Args) < 3 {
-		show_help(1)
+		showHelp(1)
 	}
 
 	command := strings.ToLower(os.Args[1])
@@ -26,17 +26,17 @@ func main() {
 	switch command {
 	case "list":
 		if err := manager.list(os.Args[2]); err != nil {
-			handle_error(command, err)
+			handleError(command, err)
 		}
 	case "copy":
 		if len(os.Args) != 4 {
-			show_help(1)
+			showHelp(1)
 		}
 		if err := manager.copy(os.Args[2], os.Args[3]); err != nil {
-			handle_error(command, err)
+			handleError(command, err)
 		}
 	default:
-		show_help(0)
+		showHelp(0)
 	}
 }
 
@@ -76,7 +76,7 @@ func (m *Manager) copy(src, dst string) error {
 	return out.Close()
 }
 
-func show_help(exit_status int) {
+func showHelp(exit_status int) {
 	help_message := "File-Manager is a CLI tool for managing files:\n\n" +
 		"Usage:\n" +
 		"list <path>\t\tShow list of files in path\n" +
@@ -87,7 +87,7 @@ func show_help(exit_status int) {
 	os.Exit(exit_status)
 }
 
-func handle_error(cmd string, err error) {
+func handleError(cmd string, err error) {
 	fmt.Fprintf(os.Stderr, "%s: %v\n", cmd, err)
 	os.Exit(1)
 }
