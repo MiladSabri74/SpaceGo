@@ -7,6 +7,13 @@ import (
 	"strings"
 )
 
+type FileOperator interface {
+	list(dir string) error
+	copy(src, dst string) error
+}
+
+type Manager struct{}
+
 func main() {
 
 	if len(os.Args) < 3 {
@@ -14,54 +21,57 @@ func main() {
 	}
 
 	command := strings.ToLower(os.Args[1])
+	manager := &Manager{}
+
 	switch command {
 	case "list":
-		list(os.Args[2])
+		if err := manager.list(os.Args[2]); err != nil {
+			handle_error(command, err)
+		}
 	case "copy":
 		if len(os.Args) != 4 {
 			show_help(1)
 		}
-		if err := copy(os.Args[2], os.Args[3]); err != nil {
-			fmt.Fprintf(os.Stderr, "copy: %v\n", err)
-			os.Exit(1)
+		if err := manager.copy(os.Args[2], os.Args[3]); err != nil {
+			handle_error(command, err)
 		}
 	default:
 		show_help(0)
 	}
 }
 
-func list(dir string) {
+func (m *Manager) list(dir string) error {
 	entries, err := os.ReadDir(dir)
 	if err != nil {
-		handle_error("list", err)
+		return err
 	}
 	for _, entry := range entries {
 		fmt.Println(entry.Name())
 	}
+	return nil
 }
 
-func copy(src, dst string) error {
+func (m *Manager) copy(src, dst string) error {
 	in, err := os.Open(src)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "copy: %v\n", err)
-		os.Exit(1)
+		return err
 	}
 	defer in.Close()
 
 	info, err := in.Stat()
 	if err != nil {
-		handle_error("copy", err)
+		return err
 	}
 
 	out, err := os.OpenFile(
 		dst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, info.Mode())
 	if err != nil {
-		handle_error("copy", err)
+		return err
 	}
 	defer out.Close()
 
 	if _, err := io.Copy(out, in); err != nil {
-		handle_error("copy", err)
+		return err
 	}
 	return out.Close()
 }
@@ -69,8 +79,9 @@ func copy(src, dst string) error {
 func show_help(exit_status int) {
 	help_message := "File-Manager is a CLI tool for managing files:\n\n" +
 		"Usage:\n" +
-		"List <path>\tShow list of files in path\n" +
-		"help\t\tShow list of supported command and usages"
+		"list <path>\t\tShow list of files in path\n" +
+		"copy <src> <dst>\tCopy src file to dst file\n" +
+		"help\t\t\tShow list of supported command and usages"
 
 	fmt.Println(help_message)
 	os.Exit(exit_status)
