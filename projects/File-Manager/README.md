@@ -56,37 +56,12 @@ The binary will be created in the current directory. Run it with:
 ./file-manager help
 ```
 
-### Option 2: Install to GOPATH/bin (Global Installation)
-
-```bash
-# Navigate to the project directory
-cd File-Manager
-
-# Install the binary to $GOPATH/bin
-go install ./cmd/filemanager
-
-# Add GOPATH/bin to your PATH (if not already added)
-# For bash/zsh, add this line to your ~/.bashrc or ~/.zshrc:
-export PATH=$PATH:$(go env GOPATH)/bin
-
-# Then reload your shell configuration:
-source ~/.bashrc  # or source ~/.zshrc
-
-# Now you can use file-manager from anywhere
-file-manager help
-```
-
-**Note:** If you don't want to modify your PATH, you can run the binary directly from:
-```bash
-$(go env GOPATH)/bin/file-manager help
-```
-
-### Option 3: Using Go Install (Remote Installation)
+### Option 2: Using Go Install (Remote Installation)
 
 Once published to a Git repository:
 
 ```bash
-go install github.com/spacego/file-manager/cmd/filemanager@latest
+go install github.com/miladsabri74/spacego/file-manager/cmd/filemanager@latest
 ```
 
 ## Usage
