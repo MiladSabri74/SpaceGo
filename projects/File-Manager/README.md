@@ -44,17 +44,24 @@ This separation allows:
 
 ## Installation
 
-### From Source
+### Option 1: Build from Source (Local Development)
 
 ```bash
 cd File-Manager
 go build -o file-manager ./cmd/filemanager
 ```
 
-### Using Go Install
+The binary will be created in the current directory. Run it with:
+```bash
+./file-manager help
+```
+
+### Option 2: Using Go Install (Remote Installation)
+
+Once published to a Git repository:
 
 ```bash
-go install github.com/spacego/file-manager/cmd/filemanager@latest
+go install github.com/miladsabri74/spacego/file-manager/cmd/filemanager@latest
 ```
 
 ## Usage
