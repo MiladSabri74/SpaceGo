@@ -16,22 +16,18 @@ func main() {
 		instruction, _ := reader.ReadString('\n')
 		instruction = strings.TrimSpace(instruction)
 		if instruction == "+" {
-			line, _ := reader.ReadString('\n')
-			fmt.Sscanf(line, "%f %f", &num1, &num2)
+			num1, num2 = readNumbers(reader)
 			fmt.Printf("Result: %.4f\n", num1+num2)
 		} else if instruction == "-" {
-			line, _ := reader.ReadString('\n')
-			fmt.Sscanf(line, "%f %f", &num1, &num2)
+			num1, num2 = readNumbers(reader)
 			fmt.Printf("Result: %.4f\n", num1-num2)
 
 		} else if instruction == "*" {
-			line, _ := reader.ReadString('\n')
-			fmt.Sscanf(line, "%f %f", &num1, &num2)
+			num1, num2 = readNumbers(reader)
 			fmt.Printf("Result: %.4f\n", num1*num2)
 
 		} else if instruction == "/" {
-			line, _ := reader.ReadString('\n')
-			fmt.Sscanf(line, "%f %f", &num1, &num2)
+			num1, num2 = readNumbers(reader)
 			if num2 != 0 {
 				fmt.Printf("Result: %.4f\n", num1/num2)
 			} else {
@@ -44,4 +40,13 @@ func main() {
 			fmt.Println("Unknown command")
 		}
 	}
+}
+
+func readNumbers(reader *bufio.Reader) (float64, float64) {
+	line, _ := reader.ReadString('\n')
+
+	var num1, num2 float64
+	fmt.Sscanf(line, "%f %f", &num1, &num2)
+
+	return num1, num2
 }
