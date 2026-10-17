@@ -1,31 +1,52 @@
-# SpaceGo 🚀
+SpaceGo 🚀
 
-Welcome to **SpaceGo**, my personal workspace for mastering the Go programming language (Golang) and exploring its ecosystem. This repository serves as a living journal of my learning journey, containing exercises, mini-projects, code snippets, and notes.
+SpaceGo is my personal journey into the Go programming language (Golang) and its ecosystem. This repository is a collection of exercises, projects, code snippets, and notes documenting my progress as I learn Go — from the fundamentals to backend development and more advanced concepts.
 
-## 📖 About
+📖 About
 
-This repository was started to systematically learn Go, starting from the basics and moving towards advanced concepts, concurrency, and building real-world applications. It is heavily integrated with [Exercism](https://exercism.org/) for structured practice, but will also host custom projects, book exercises, and useful hints.
+The goal of this repository is to build a solid foundation in Go through consistent practice, hands-on projects, and exploration of real-world development concepts.
 
-## 📂 Repository Structure
+My learning journey includes:
 
-```text
+Go Fundamentals: Learning the syntax, data types, functions, structs, interfaces, and error handling.
+Problem Solving: Practicing Go through Exercism and other coding exercises.
+Backend Development: Working through the Quera Jump to Go Backend course and implementing its exercises and projects.
+Practical Projects: Applying what I learn by building small applications and experimenting with Go's ecosystem.
+Continuous Learning: Exploring idiomatic Go, concurrency, and backend development best practices.
+
+This repository is a living record of my progress, experiments, and lessons learned along the way.
+
+📂 Repository Structure
 SpaceGo/
-├── solutions/go/       # Automated sync of Exercism Go track solutions
-├── projects/           # (Future) Mini-projects and real-world apps
-├── snippets/           # (Future) Code snippets, patterns, and tricks from books/courses
-├── notes/              # (Future) Notes, cheat sheets, and concepts
-├── README.md           # You are here!
-└── LICENSE             # MIT License
-```
+├── solutions/
+│   └── go/              # Exercism Go track solutions
+├── quera-course/        # Quera Jump to Go Backend course exercises and projects
+├── README.md            # Project overview and learning roadmap
+└── LICENSE              # MIT License
 
-## 🏆 Current Progress
+🎯 Current Focus
 
-Exercism Go Track
-I am currently using the Exercism Go Track
- to build a strong foundation. Solutions are automatically synced using the Exercism bot.
+Quera — Jump to Go Backend
 
-## 🤝 Contributing
-This is primarily a personal learning repository, but if you spot a bug in my code, have a suggestion for a more idiomatic approach, or want to share a cool resource, feel free to open an Issue or a Pull Request!
+I am currently working through the Quera Jump to Go Backend course, focusing on strengthening my Go fundamentals and developing practical backend programming skills.
 
-## 📜 License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/MiladSabri74/SpaceGo/blob/master/LICENSE) file for details.
+My current goals are to:
+
+Complete course exercises and projects.
+Write clean, readable, and idiomatic Go code.
+Improve my problem-solving and debugging skills.
+Build a strong foundation for developing backend applications with Go.
+
+🤝 Contributing
+
+SpaceGo is primarily a personal learning repository, but feedback and suggestions are always welcome!
+
+If you spot a bug, have an idea for a more idiomatic solution, or want to recommend a useful resource, feel free to open an Issue or submit a Pull Request.
+
+I'm always happy to learn from the Go community and improve my code.
+
+📜 License
+
+This project is licensed under the MIT License.
+
+⭐ Learning by doing, one line of Go at a time.
